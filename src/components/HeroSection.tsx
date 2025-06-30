@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from 'react'
-import { ArrowRight, ChevronRight, Menu, X, Sparkles, Presentation, Mic, Zap, Brain, Volume2, PlayCircle, Star, Users, Award, TrendingUp, Shield, Rocket, Globe, CheckCircle, ArrowDown } from 'lucide-react'
+import { ArrowRight, ChevronRight, Menu, X, Sparkles, Presentation, Mic, Zap, Brain, Volume2, PlayCircle, Star, Users, Award, TrendingUp, Shield, Rocket, Globe, CheckCircle, ArrowDown, ExternalLink } from 'lucide-react'
 import { Button } from './ui/button'
 import { AnimatedGroup } from './ui/animated-group'
 import { cn } from '../lib/utils'
@@ -517,13 +519,22 @@ export function HeroSection({ onGetStarted, onSignIn, isAuthenticated }: HeroSec
                         </div>
                         
                         <div className="border-t border-gray-200 pt-4 md:pt-8 opacity-0 animate-fade-up" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
-                            <div className="flex flex-col md:flex-row justify-between items-center">
+                            <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0">
                                 <p className="text-gray-600 text-xs md:text-sm">
                                     © 2024 Prezentic. All rights reserved.
                                 </p>
-                                <p className="text-gray-600 text-xs md:text-sm mt-2 md:mt-0">
-                                    Built on Bolt
-                                </p>
+                                <div className="flex items-center gap-3 md:gap-4">
+                                    <a 
+                                        href="https://bolt.new" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1 md:gap-2 px-2 md:px-3 py-1 md:py-1.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-xs md:text-sm font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
+                                    >
+                                        <Sparkles className="h-3 w-3 md:h-4 md:w-4" />
+                                        <span>Built with Bolt.new</span>
+                                        <ExternalLink className="h-2.5 w-2.5 md:h-3 md:w-3" />
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
