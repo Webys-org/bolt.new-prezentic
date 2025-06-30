@@ -241,22 +241,50 @@ export function HeroSection({ onGetStarted, onSignIn, isAuthenticated }: HeroSec
 
                         {/* YouTube Video Demo */}
                         <div className="relative max-w-5xl mx-auto opacity-0 animate-fade-up" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
-                            <div className="aspect-video rounded-xl md:rounded-3xl bg-gradient-to-br from-blue-50 to-purple-50 border border-white/20 backdrop-blur-md overflow-hidden shadow-2xl">
-                                <iframe
-                                    className="w-full h-full"
-                                    src="https://www.youtube.com/embed/1VGbmnOFLAI?autoplay=1&mute=1&loop=1&playlist=1VGbmnOFLAI&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0&cc_load_policy=0&start=0&end=0&playbackRate=2"
-                                    title="Prezentic AI Presentation Demo"
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowFullScreen
-                                    style={{ 
-                                        border: 'none',
-                                        borderRadius: 'inherit'
-                                    }}
-                                />
+                            <div className="aspect-video rounded-xl md:rounded-3xl bg-gradient-to-br from-blue-50 to-purple-50 border border-white/20 backdrop-blur-md overflow-hidden shadow-2xl relative">
+                                {/* YouTube Video with Fallback */}
+                                <div className="w-full h-full relative">
+                                    <iframe
+                                        className="w-full h-full absolute inset-0"
+                                        src="https://www.youtube-nocookie.com/embed/1VGbmnOFLAI?autoplay=1&mute=1&loop=1&playlist=1VGbmnOFLAI&controls=1&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&cc_load_policy=0&start=0"
+                                        title="Prezentic AI Presentation Demo"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen
+                                        loading="lazy"
+                                        style={{ 
+                                            border: 'none',
+                                            borderRadius: 'inherit'
+                                        }}
+                                    />
+                                    
+                                    {/* Fallback Content */}
+                                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-600 via-purple-600 to-teal-600 text-white">
+                                        <div className="text-center p-4 md:p-8">
+                                            <div className="w-12 h-12 md:w-20 md:h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-6 shadow-lg">
+                                                <PlayCircle className="h-6 w-6 md:h-10 md:w-10 text-white" />
+                                            </div>
+                                            <h3 className="text-base md:text-card-title font-bold mb-2 md:mb-4">
+                                                Live Demo: AI Presentation Creation
+                                            </h3>
+                                            <p className="text-xs md:text-body mb-3 md:mb-6 max-w-md text-white/90">
+                                                Experience the power of AI-generated presentations with live narration and auto-advance features.
+                                            </p>
+                                            <a
+                                                href="https://youtu.be/1VGbmnOFLAI"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white rounded-lg md:rounded-xl px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm hover:bg-white/30 transition-all"
+                                            >
+                                                <ExternalLink className="w-4 h-4" />
+                                                Watch on YouTube
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                                 
                                 {/* Video Overlay with Info */}
-                                <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-lg p-3 md:p-4 text-white">
+                                <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-lg p-3 md:p-4 text-white z-10">
                                     <div className="flex items-center justify-between">
                                         <div>
                                             <h3 className="font-semibold text-sm md:text-base mb-1">Live Demo: AI Presentation Creation</h3>
